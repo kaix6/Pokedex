@@ -5,6 +5,7 @@ let myChart;
 async function init() {
   await loadPokemon();
   renderPokemonInfo();
+  changeBackground();
 }
 
 async function loadPokemon() {
@@ -38,6 +39,17 @@ async function renderPokemonCard() {
   document.getElementById("typeCard").innerHTML =
     currentPokemon["types"][0]["type"]["name"];
   renderStatsInCharts();
+  changeBackground();
+}
+
+async function renderPokemonMoveAndEvolution() {
+  await loadPokemon();
+  document.getElementById("pokemonName").innerHTML = currentPokemon["name"];
+  document.getElementById("pokemonImage").src =
+    currentPokemon["sprites"]["front_shiny"];
+  document.getElementById("typeCard").innerHTML =
+    currentPokemon["types"][0]["type"]["name"];
+  changeBackground();
 }
 
 function renderChart() {
@@ -58,6 +70,14 @@ function renderChart() {
           label: "Stats",
           data: stats,
           borderWidth: 1,
+          backgroundColor: [
+            "rgba (54, 162, 235, 0.2)",
+            "rgba (54, 162, 235, 0.2)",
+            "rgba (54, 162, 235, 0.2)",
+            "rgba (54, 162, 235, 0.2)",
+            "rgba (54, 162, 235, 0.2)",
+            "rgba (54, 162, 235, 0.2)",
+          ],
         },
       ],
     },
@@ -81,3 +101,27 @@ function renderStatsInCharts() {
   console.log(stats);
   renderChart();
 }
+
+function changeBackground() {
+  // Das Element mit der ID "typeCard" auswählen und seinen Textinhalt erhalten
+  const typeCardText = document
+    .getElementById("typeCard")
+    .innerText.toLowerCase();
+
+  // Das Element mit der ID "pokedex" auswählen
+  const pokedexElement = document.getElementById("pokedex");
+
+  // Überprüfen, welches Wort sich in typeCard befindet, und den Hintergrund von pokedex entsprechend ändern
+  if (typeCardText === "fire") {
+    pokedexElement.style.backgroundColor = "rgb(215, 88, 88)";
+  } else if (typeCardText === "electric") {
+    pokedexElement.style.backgroundColor = "rgb(223, 185, 33)";
+  } else if (typeCardText === "grass") {
+    pokedexElement.style.backgroundColor = "rgb(64, 207, 39)";
+  } else if (typeCardText === "water") {
+    pokedexElement.style.backgroundColor = "rgb(39, 157, 207)";
+  }
+}
+
+// Die Funktion aufrufen, um die Hintergrundfarbe zu ändern
+changeBackground();

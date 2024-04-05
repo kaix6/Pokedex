@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
-  <body onload="init()">
+  <body onload="renderPokemonMoveAndEvolution()">
     <div id="pokedex">
       <div id="pokedexHeaderCard">
         <img class="iconHeader" src="img/arrow-left.svg" alt="" />
@@ -26,32 +26,13 @@
 
       <div id="pokemonStats">
         <div class="statsHeader">
-          <a class="headlineStats selected" href="index.html">About</a>
+          <a class="headlineStats textGrey" href="index.html">About</a>
           <a class="headlineStats textGrey" href="basestats.html">Base Stats</a>
-          <a class="headlineStats textGrey" href="evolutions.html"
+          <a class="headlineStats selected" href="evolutions.html"
             >Evolutions</a
           >
           <a class="headlineStats textGrey" href="moves.html">Moves</a>
         </div>
-
-        <table class="tableStats">
-          <tr class="tableTrStats">
-            <td class="textGrey"><b>Species</b></td>
-            <td id="species">xxx</td>
-          </tr>
-          <tr class="tableTrStats">
-            <td class="textGrey"><b>Height</b></td>
-            <td id="height">xxx</td>
-          </tr>
-          <tr class="tableTrStats">
-            <td class="textGrey"><b>Weight</b></td>
-            <td id="weight">xxx</td>
-          </tr>
-          <tr class="tableTrStats">
-            <td class="textGrey"><b>Abilities</b></td>
-            <td id="abilities">xxx</td>
-          </tr>
-        </table>
       </div>
     </div>
   </body>
